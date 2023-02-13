@@ -5,14 +5,14 @@ import { useTokenContext } from "../../contexts/TokenContext";
 
 import VHD_logo from "../../assets/VHD_logo.png";
 
-const Header = () => {
+const AboutUsHeader = () => {
   const { token } = useTokenContext();
   return (
     <header className="Header">
       <Link to="/">
         <img className="logo" src={VHD_logo} alt="logo" />
       </Link>
-
+<div><h1 className="AboutUsH1">About us</h1></div>
       <nav>
         <ul>
           {!token && (
@@ -38,11 +38,6 @@ const Header = () => {
           {token && (
             <>
               <li>
-                <Link className="linkHeader" to="/about">
-                  About Us
-                </Link>
-              </li>
-              <li>
                 <Link className="linkHeader" to="/profile">
                   UserPage
                 </Link>
@@ -55,4 +50,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AboutUsHeader;

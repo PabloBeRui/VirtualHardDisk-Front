@@ -2,10 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #2f3c4f;
 }
 
 main {
   background-color: #2f3c4f;
-  height: 100vh;
 }

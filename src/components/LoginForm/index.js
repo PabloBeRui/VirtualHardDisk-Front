@@ -56,7 +56,7 @@ const LoginForm = () => {
           }
         }}
       >
-        <h1>Login</h1>
+        <h1>Hello Again!</h1>
         <input
           id="email"
           type="email"
@@ -76,7 +76,7 @@ const LoginForm = () => {
           }}
           placeholder="******"
         />
-        <Button text="Apply" />
+        <Button text="Login" />
       </form>
     </section>
   );

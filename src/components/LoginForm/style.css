@@ -1,8 +1,8 @@
 .loginMainSection {
   color: white;
-  border: 1px solid greenyellow;
   display: flex;
   justify-content: center;
+  height: 83vh;
 }
 
 .loginForm {

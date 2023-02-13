@@ -24,14 +24,13 @@ const useFiles = () => {
 
         // Nos traemos el body de la respuesta
         const body = await res.json();
-
         // Si la respuesta no viene bien, lanzamos un error con el mensaje que viene de la API
         if (!res.ok) {
           throw new Error(body.message);
         }
 
         // Cargamos los datos de las entries en el estado de entries
-        setFiles(body.data.entries);
+        setFiles(body.data.files);
       } catch (error) {
         // Si salta algún error, metemos el mensaje en el estado errorMessage
         setErrorMessage(error.message);

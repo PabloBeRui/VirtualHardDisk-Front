@@ -17,7 +17,7 @@ const LoginPage = () => {
   }
 
   return (
-    <section>
+    <section className="loginPage">
       <Header />
       <LoginForm />
       <Footer />

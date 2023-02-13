@@ -1,0 +1,9 @@
+.avatarImg {
+  width: 8rem;
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+
+  background-color: #fcb040;
+  padding: 10px;
+  box-shadow: 0px 0px 10px 0px #fcb040;
+}

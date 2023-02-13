@@ -1,0 +1,50 @@
+
+
+#chonckytextcolor {
+  color: white;
+  background-color: #506e86;
+}
+
+div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
+  background-color: #506e86;
+  color: white;
+}
+
+.MuiButton-root {
+  color: white !important;
+}
+.MuiButtonBase-root.MuiButton-root.MuiButton-text.baseBreadcrumb-0-2-11.baseBreadcrumb-d3-0-2-18.currentBreadcrumb-0-2-13.chonky-baseButton.Mui-disabled.Mui-disabled {
+  color: white !important;
+}
+
+.MuiInputBase-input.MuiOutlinedInput-input.chonky-searchFieldInputInner.MuiInputBase-inputAdornedStart.MuiOutlinedInput-inputAdornedStart.MuiInputBase-inputMarginDense.MuiOutlinedInput-inputMarginDense {
+  color: white !important;
+}
+
+.MuiInputAdornment-root.chonky-searchIcon.MuiInputAdornment-positionStart.MuiInputAdornment-marginDense {
+  color: white;
+}
+.chonky-chonkyRoot {
+  background-color: #506e86 !important;
+  color: white !important;
+}
+/* CAMBIA EL COLOR DE LOS ICONOS */
+.chonky-iconWithText {
+  color: #fcb040 !important;
+}
+
+/* .chonky-iconWithText svg {
+  color: #fcb040 !important;
+  text-decoration: none;
+} */
+
+/* .MuiButtonBase-root.MuiButton-root.MuiButton-text.baseBreadcrumb-0-2-290.baseBreadcrumb-d3-0-2-297.currentBreadcrumb-0-2-292.chonky-baseButton.Mui-disabled.Mui-disabled {
+  color: #fcb040;
+  text-decoration: none !important;
+} */
+
+/* CAMBIA EL COLOR DEL ROOT PERO CAMBIA TAMBEIN LOS DEMAS Y NO SE LE PUEDE AÑADIR CLASE*/
+.MuiButton-label span {
+  color: white !important;
+  text-decoration: none !important;
+}

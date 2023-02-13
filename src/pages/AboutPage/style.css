@@ -1,0 +1,72 @@
+#aboutPage {
+  background-image: url("../../assets/aboutUsBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.h1TheVHDWay {
+  color: #fcb040;
+  font-size: 6rem;
+}
+.pTheVHDWay {
+  color: white;
+  font-size: 3rem;
+}
+#sectionTheVHDWay {
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 8rem; */
+  text-align: center;
+}
+
+#divTheWHDWay {
+  width: 50%;
+}
+
+.arrowIconAboutUs {
+  height: 10rem;
+  width: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+#section2AboutUs {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  /* border-top-right-radius: 20%;
+  border-bottom-left-radius: 20%;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px; */
+  /* border-radius: 2rem; */
+  margin: 1rem;
+  height: 20rem;
+}
+
+#section2AboutUs div img {
+  flex: 1;
+  max-width: 90%;
+  height: auto;
+  
+}
+.h1AboutUs2 {
+  color: white;
+  text-align: center;
+}
+
+.h2AboutUs2 {
+  color: orangered;
+}
+
+.pAboutUs2 {
+  color: white;
+}
+
+/* .divCardAboutUs2{
+
+  background-color: #fcb040;
+} */

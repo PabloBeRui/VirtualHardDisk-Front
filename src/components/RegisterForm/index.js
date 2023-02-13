@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 //Custom Components
-import Button from "../../components/Button";
+import Button from "../Button";
 
 const RegisterForm = () => {
   //Estados para controlar los inputs del formularios
@@ -49,7 +49,7 @@ const RegisterForm = () => {
           }
         }}
       >
-        <h1>Register</h1>
+        <h1>Welcome!</h1>
         <input
           id="username"
           value={username}
@@ -75,7 +75,7 @@ const RegisterForm = () => {
           type="password"
           placeholder="******"
         />
-        <Button text="Apply" />
+        <Button text="Register" />
       </form>
     </section>
   );

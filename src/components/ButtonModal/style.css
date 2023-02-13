@@ -1,0 +1,28 @@
+#button {
+  background-color: #fcb040;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 3rem;
+  border: none;
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+  padding: 1rem;
+  user-select: none;
+}
+#button > a {
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
+}
+
+#button :hover {
+  cursor: pointer;
+  color: #506e86;
+}
+
+/* #button a:hover {
+  cursor: pointer;
+  color:#506e86
+}
+ */

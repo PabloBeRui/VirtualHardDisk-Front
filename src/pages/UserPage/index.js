@@ -3,13 +3,16 @@ import "./style.css";
 //Components
 import UserHeader from "../../components/UserHeader";
 import useFiles from "../../hooks/useFiles";
+import { FileBrowser } from "../../components/FileBrowser";
 
 const UserPage = () => {
-  useFiles();
+  const { files } = useFiles();
+  console.log(files);
 
   return (
-    <section>
+    <section id="userpage">
       <UserHeader />
+      <FileBrowser files={files} />
     </section>
   );
 };

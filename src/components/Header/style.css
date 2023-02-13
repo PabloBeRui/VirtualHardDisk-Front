@@ -1,19 +1,31 @@
-header {
-  padding: 1rem 4rem;
-  border: 1px solid red;
-  width: 100vw;
+Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-img {
-  display: flex;
-  width: 9rem;
+.logo {
+  width: 10rem;
+  height: 10rem;
 }
 
-header ul {
+Header ul {
   display: flex;
-  justify-content: flex-end;
+  list-style: none;
   gap: 2rem;
-  font-size: 2rem;
-  list-style-type: none;
+  padding: 2rem;
+  user-select: none;
+}
+
+.linkHeader {
   color: white;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.linkHeader:hover {
+  cursor: pointer;
+  color: #fcb040;
+  font-size: 2.1rem;
+ 
 }

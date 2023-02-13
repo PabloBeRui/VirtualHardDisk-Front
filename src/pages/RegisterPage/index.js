@@ -7,7 +7,7 @@ import RegisterForm from "../../components/RegisterForm";
 
 const RegisterPage = () => {
   return (
-    <section>
+    <section className="registerPage">
       <Header />
       <RegisterForm />
       <Footer />
