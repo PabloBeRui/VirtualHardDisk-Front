@@ -22,7 +22,6 @@ const LandingPage = () => {
           <ButtonModal text="ABOUT US" destination="../about" />
         </div>
       </section>
-
       <Footer />
     </section>
   );

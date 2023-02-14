@@ -45,10 +45,7 @@
 .userModalInfo > input {
   height: 3rem;
   border: none;
-  
-  border-top-left-radius: 20%;
-  border-bottom-right-radius: 20%;
-  
+  border-radius: 0.2rem;
 }
 
 .userModalInfo > p {
@@ -76,5 +73,3 @@ input:focus {
   color: #506e86;
   text-align: center;
 }
-
-

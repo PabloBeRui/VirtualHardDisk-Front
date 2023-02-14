@@ -11,6 +11,11 @@ setChonkyDefaults({ iconComponent: ChonkyIconFA });
 export const FileBrowser = ({ files }) => {
   const { token } = useTokenContext();
   console.log(files);
+
+  setChonkyDefaults({
+    disableDefaultFileActions: true,
+  });
+
   const fileActions = [
     ChonkyActions.UploadFiles,
     ChonkyActions.DownloadFiles,
@@ -175,6 +180,8 @@ export const FileBrowser = ({ files }) => {
 
   const folderChain = [{ id: "xcv", name: "root", isDir: true }];
 
+  // const files2 = [{ ...files[0], isDir: true }, files[1]];
+  // console.log("FILES 2:", files2);
   return (
     <div id="chonckytextcolor" style={{ height: "100vh", color: "white" }}>
       <FullFileBrowser
