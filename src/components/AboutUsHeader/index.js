@@ -12,7 +12,7 @@ const AboutUsHeader = () => {
       <Link to="/">
         <img className="logo" src={VHD_logo} alt="logo" />
       </Link>
-<div><h1 className="AboutUsH1">About us</h1></div>
+
       <nav>
         <ul>
           {!token && (

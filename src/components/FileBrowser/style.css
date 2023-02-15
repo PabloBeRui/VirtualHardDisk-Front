@@ -33,6 +33,16 @@ div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
   color: #fcb040 !important;
 }
 
+
+/* CAMBIA EL COLOR DEL ROOT PERO CAMBIA TAMBEIN LOS DEMAS Y NO SE LE PUEDE AÑADIR CLASE*/
+.MuiButton-label span {
+  color: white !important;
+  text-decoration: none !important;
+}
+.folderBackSideTop-0-2-49::after {
+  border-style: none !important;
+}
+
 /* .chonky-iconWithText svg {
   color: #fcb040 !important;
   text-decoration: none;
@@ -42,9 +52,88 @@ div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
   color: #fcb040;
   text-decoration: none !important;
 } */
+/* .folderBackSideTop-0-2-117.folderBackSideTop-d3-0-2-128 {
+  background-color: #fcb040 !important;
+} */
 
-/* CAMBIA EL COLOR DEL ROOT PERO CAMBIA TAMBEIN LOS DEMAS Y NO SE LE PUEDE AÑADIR CLASE*/
-.MuiButton-label span {
-  color: white !important;
-  text-decoration: none !important;
+/* COLOR ARCHIVOS Y CARPETAS
+.thumbnail-0-2-31.chonky-fileThumbnail {background-color: #fcb040;} */
+/* COLOR PESTAÑA IZQUIERDA CARPETA 
+.folderBackSideTop-0-2-49.folderBackSideTop-d3-0-2-60{
+  background-color: #fcb040;
+} */
+
+/* .folderFrontSide-0-2-51.folderFrontSide-d5-0-2-62 {
+  background-color: #7240fc;
 }
+.fileIcon-0-2-30.fileIcon-d7-0-2-64.fileIcon-0-2-52 {
+  background-color: #7240fc;
+}
+.selectionIndicator-0-2-34.selectionIndicator-d6-0-2-65 {
+  background-color: #fcb040;
+}
+.thumbnail-0-2-31.chonky-fileThumbnail {
+  background-color: #fc6640;
+}
+.gridFileEntrry-0-2-22 {
+  background-color: aqua !important;
+} */
+
+/* .folderBackSideTop-0-2-49 {
+  background-color: black !important;
+  border-style: none !important;
+  border-width: none !important;
+} */
+
+/* .folderBackSideTop-d3-0-2-60{background-color: black !important} */
+
+/* div.folderBackSideTop-0-2-49.folderBackSideTop-d3-0-2-90 {
+  background-color: black !important;
+} */
+
+/* color derecha icono */
+/* .previewFile-0-2-48.gridFileEntryPreview-0-2-23 {background-color: black;} */
+/* FONDO FILEBROWSER */
+/* .chonky-fileListWrapper.fileListWrapper-0-2-1.fileListWrapper-d3-0-2-7 {background-color: black;} */
+
+/* COLOR SELECTOR ARCHIVOS Y .chonky-fileListWrapper.fileListWrapper-0-2-1.fileListWrapper-d3-0-2-7
+.folderFrontSide-0-2-51.folderFrontSide-d5-0-2-62 {
+  background-color: #7240fc;
+} */
+
+/* #chonckytextcolor {
+  color: white !important;
+  background-color: #506e86 !important;
+}
+
+div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
+  background-color: #506e86;
+  border-bottom-color: red;
+  color: white;
+}
+
+.MuiButton-root {
+  color: white !important;
+}
+.MuiButtonBase-root.MuiButton-root.MuiButton-text.baseBreadcrumb-0-2-11.baseBreadcrumb-d3-0-2-18.currentBreadcrumb-0-2-13.chonky-baseButton.Mui-disabled.Mui-disabled {
+  color: white !important;
+}
+
+.MuiInputBase-input.MuiOutlinedInput-input.chonky-searchFieldInputInner.MuiInputBase-inputAdornedStart.MuiOutlinedInput-inputAdornedStart.MuiInputBase-inputMarginDense.MuiOutlinedInput-inputMarginDense {
+  color: white !important;
+}
+
+.MuiInputAdornment-root.chonky-searchIcon.MuiInputAdornment-positionStart.MuiInputAdornment-marginDense {
+  color: white !important;
+}
+*/
+/* #userpage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}  */
+
+/* *{height: 20vh;} */

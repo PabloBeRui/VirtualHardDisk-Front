@@ -1,47 +1,9 @@
-/* #chonckytextcolor {
-  color: white !important;
-  background-color: #506e86 !important;
-}
-
-div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
-  background-color: #506e86;
-  border-bottom-color: red;
-  color: white;
-}
-
-.MuiButton-root {
-  color: white !important;
-}
-.MuiButtonBase-root.MuiButton-root.MuiButton-text.baseBreadcrumb-0-2-11.baseBreadcrumb-d3-0-2-18.currentBreadcrumb-0-2-13.chonky-baseButton.Mui-disabled.Mui-disabled {
-  color: white !important;
-}
-
-.MuiInputBase-input.MuiOutlinedInput-input.chonky-searchFieldInputInner.MuiInputBase-inputAdornedStart.MuiOutlinedInput-inputAdornedStart.MuiInputBase-inputMarginDense.MuiOutlinedInput-inputMarginDense {
-  color: white !important;
-}
-
-.MuiInputAdornment-root.chonky-searchIcon.MuiInputAdornment-positionStart.MuiInputAdornment-marginDense {
-  color: white !important;
-}
-*/
-/* #userpage {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}  */
-
-/* *{height: 20vh;} */
-
 #userpage {
   display: flex;
   flex-direction: column;
   height: 100vh;
   border: 0 solid transparent;
-  animation: border-animation 0.5s linear forwards;
- 
+  animation: border-animation 0.8s linear forwards;
 }
 
 @keyframes border-animation {
@@ -61,6 +23,19 @@ div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
     border-color: #fcb040;
     border-width: 2px;
   }
+
+  60% {
+    border-color: #fcb040;
+    border-width: 1.5px;
+  }
+  65% {
+    border-color: #fcb040;
+    border-width: 1.3px;
+  }
+  70% {
+    border-color: #fcb040;
+    border-width: 1.1px;
+  }
   75% {
     border-color: #fcb040;
     border-width: 1px;
@@ -69,9 +44,17 @@ div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
     border-color: #fcb040;
     border-width: 0.5px;
   }
+  90% {
+    border-color: #fcb040;
+    border-width: 0.3px;
+  }
   95% {
     border-color: #fcb040;
     border-width: 0.2px;
+  }
+  97% {
+    border-color: #fcb040;
+    border-width: 0.1px;
   }
   100% {
     border-color: #fcb040;

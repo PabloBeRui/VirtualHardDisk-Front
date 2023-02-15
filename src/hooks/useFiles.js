@@ -28,9 +28,9 @@ const useFiles = () => {
         if (!res.ok) {
           throw new Error(body.message);
         }
-
+        console.log(body);
         // Cargamos los datos de las entries en el estado de entries
-        setFiles(body.data.files);
+        setFiles(body.data.items);
       } catch (error) {
         // Si salta algún error, metemos el mensaje en el estado errorMessage
         setErrorMessage(error.message);

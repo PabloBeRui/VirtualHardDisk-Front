@@ -9,6 +9,7 @@ import arrowIconAboutUs from "../../assets/arrowIconAboutUs.png";
 import logo1 from "../../assets/logo1AboutUs.png";
 import logo2 from "../../assets/logo2AboutUs.png";
 import logo3 from "../../assets/logo3AboutUs.png";
+import arrowIconAboutUsBack from "../../assets/arrowIconAboutUsBack.png";
 
 const AboutPage = () => {
   const [showArrow, setShowArrow] = useState(true);
@@ -27,6 +28,14 @@ const AboutPage = () => {
     setSectionContent(
       <section id="section2AboutUs">
         <div className="divh1AboutUs2">
+          <a href="/about">
+            <img
+              className="arrowIconAboutUsBack"
+              alt="Next"
+              src={arrowIconAboutUsBack}
+              onClick={handleButtonClick}
+            />
+          </a>
           <h1 class="h1AboutUs2"> Why VHD?</h1>
         </div>
         <section id="sectionCardsAboutUs2">
@@ -42,7 +51,7 @@ const AboutPage = () => {
             <h2 class="h2AboutUs2">Unmatched Support</h2>
             <p class="pAboutUs2">Virtual assistance. Talk to us about any</p>
           </div>
-          <div class="divCardAboutUs2">
+          <div class="divCardAboutUs2B">
             <img src={logo3} alt="Logo" />
             <h2 class="h2AboutUs2">Beginner-Friendly</h2>
             <p class="pAboutUs2">

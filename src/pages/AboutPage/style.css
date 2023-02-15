@@ -38,6 +38,17 @@
   flex-direction: row;
   justify-content: flex-end;
 }
+
+.arrowIconAboutUsBack {
+  height: 5rem;
+  width: 5rem;
+}
+
+.arrowIconAboutUsBack:hover,
+.arrowIconAboutUs:hover {
+  transform: scale(1.1);
+}
+
 #section2AboutUs {
   display: flex;
   flex-direction: column;
@@ -76,8 +87,11 @@
 
 .divh1AboutUs2 {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: baseline;
+  text-align: center;
+  width: 30rem;
+  margin-bottom: 2rem;
 }
 
 #sectionCardsAboutUs2 {
@@ -86,16 +100,27 @@
 }
 .divCardAboutUs2 {
   height: 110%;
-  background-color: rgba(80, 110, 134, 0.9);
+  background-color: rgba(47, 60, 79, 0.5);
   border-width: 1rem;
   margin-left: 3rem;
-  margin-right: 5rem;
+  margin-right: 10rem;
   border-radius: 20%;
 
   /* border-color: white !important; */
 }
 
+.divCardAboutUs2B {
+  height: 110%;
+  background-color: rgba(80, 110, 134, 0.9);
+  border-width: 1rem;
+  margin-left: 3rem;
+  margin-right: 5rem;
+  border-radius: 20%;
+}
 .divCardAboutUs2 img {
+  margin: 1rem;
+}
+.divCardAboutUs2B img {
   margin: 1rem;
 }
 

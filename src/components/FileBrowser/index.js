@@ -149,6 +149,9 @@ export const FileBrowser = ({ files }) => {
       toast.error(error.message);
     } finally {
       toast.success("Archivo descargado correctamente");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     }
   };
 

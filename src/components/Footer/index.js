@@ -7,7 +7,7 @@ const Footer = () => {
         className="footerText"
         href="https://github.com/TheBraisgf/VirtualHardDisk-Front"
       >
-        Braisgf 
+        Braisgf
       </a>
       <p className="pfooter">&nbsp; & &nbsp;</p>
       <a
@@ -16,13 +16,9 @@ const Footer = () => {
       >
         Pabloberu
       </a>
+      <p>&nbsp;&nbsp;&nbsp;2023</p>
     </footer>
   );
 };
 
 export default Footer;
-
-
-
-
- 

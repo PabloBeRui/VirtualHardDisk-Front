@@ -5,6 +5,7 @@ import UserHeader from "../../components/UserHeader";
 import useFiles from "../../hooks/useFiles";
 import { FileBrowser } from "../../components/FileBrowser";
 import { useTokenContext } from "../../contexts/TokenContext";
+import uuid from "react-uuid";
 
 const UserPage = () => {
   const { loggedUser } = useTokenContext();
@@ -29,26 +30,21 @@ const UserPage = () => {
 
   const uniqueFolders = findFolders(files);
 
-  const folderObjects = uniqueFolders.map((folder, i) => ({
-    createdAt: new Date(),
-    folder: id,
-    id: i,
-    isDir: true,
+  const folderObjects = uniqueFolders.map((folder) => ({
+    id: uuid(),
     name: folder,
-    removed: 0,
-    user_id: id,
+    isDir: true,
   }));
-
-  //FILTER.MAP, QUITANDO DUPLICADOS.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   const updatedFiles = [...files, ...folderObjects];
 
-  // const files2 = [{ ...files[0], isDir: true }, files[1]];
   console.log("UNIQUE FOLDERS:", uniqueFolders);
+  console.log("FOLDERS OBJECTS:", folderObjects);
+
   return (
-    <section>
+    <section id="userpage">
       <UserHeader />
-      {updatedFiles && <FileBrowser files={updatedFiles} />}{" "}
+      {updatedFiles && <FileBrowser files={updatedFiles} />}
     </section>
   );
 };
