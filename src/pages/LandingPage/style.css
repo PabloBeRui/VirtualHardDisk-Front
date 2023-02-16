@@ -1,4 +1,4 @@
-#LandinPage {
+#LandingPage {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -7,9 +7,12 @@
 
 #MiddleLandingPage {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 1rem;
 }
 
 .slogan {
@@ -17,9 +20,16 @@
   font-size: 5rem;
   user-select: none;
   margin-bottom: 20px;
+  text-align: center;
 }
+
 #sloganAboutUs {
   text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 footer {
@@ -27,4 +37,50 @@ footer {
   bottom: 0;
   width: 100%;
   height: 50px;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+@media only screen and (min-width: 1200px) {
+  #MiddleLandingPage {
+    max-width: 1200px;
+  }
+
+  .slogan {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .slogan {
+    font-size: 3rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  #MiddleLandingPage {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .slogan {
+    font-size: 4rem;
+  }
+}
+
+/* MAX WIDTH */
+
+@media screen and (max-width: 768px) {
+  .slogan {
+    font-size: 3rem;
+  }
+  #MiddleLandingPage div {
+    text-align: center;
+  }
+
+  #MiddleLandingPage img {
+    width: 50%;
+  }
 }

@@ -5,18 +5,22 @@ import UserHeader from "../../components/UserHeader";
 import useFiles from "../../hooks/useFiles";
 import { FileBrowser } from "../../components/FileBrowser";
 import { useTokenContext } from "../../contexts/TokenContext";
-import uuid from "react-uuid";
+
+import { useEffect, useRef } from "react";
 
 const UserPage = () => {
   const { loggedUser } = useTokenContext();
   const { files } = useFiles();
-  const { id } = loggedUser;
-  console.log(files);
-  console.log("USER:", loggedUser);
+  const { userId } = loggedUser;
+  const uniqueFolders = useRef([]);
+  console.log("FILES PRE:", files);
+
+  useEffect(() => {
+    uniqueFolders.current = findFolders(files);
+  }, [files]);
 
   const findFolders = (files) => {
-    console.log("ME LLEGA:", files);
-    const defaultFolder = id;
+    const defaultFolder = userId;
     const uniqueFolders = [];
 
     for (const file of files) {
@@ -28,19 +32,25 @@ const UserPage = () => {
     return uniqueFolders;
   };
 
-  const uniqueFolders = findFolders(files);
+  // const folderObjects = uniqueFolders.current.map((folder) => ({
+  //   id: uuid(),
+  //   name: folder,
+  //   isDir: false,
+  //   parentId: id,
+  // }));
 
-  const folderObjects = uniqueFolders.map((folder) => ({
-    id: uuid(),
-    name: folder,
-    isDir: true,
-  }));
+  const updatedFiles = files.map((file) => {
+    if (file.isDir) {
+      return {
+        ...file,
+        parentId: file.parentId ? file.parentId : userId,
+      };
+    } else {
+      return file;
+    }
+  });
 
-  const updatedFiles = [...files, ...folderObjects];
-
-  console.log("UNIQUE FOLDERS:", uniqueFolders);
-  console.log("FOLDERS OBJECTS:", folderObjects);
-
+  console.log("Updated files:", updatedFiles);
   return (
     <section id="userpage">
       <UserHeader />

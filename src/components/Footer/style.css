@@ -13,19 +13,18 @@ footer {
   -webkit-text-stroke: 1px #fcb040;
 }
 
-p {
+p.pfooterDate {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   background-image: linear-gradient(
     to right,
-    #ff0000,
-    #ff7f00,
-    #ffff00,
-    #00ff00,
-    #0000ff,
-    #4b0082,
-    #8f00ff
+    #FFA500,
+    #FFA07A,
+    #FF8C00,
+    #FF7F50,
+    #FF6347,
+    #FF4500
   );
-  
 }
+

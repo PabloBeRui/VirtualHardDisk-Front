@@ -69,6 +69,7 @@
   color: #fcb040;
   text-align: center;
   font-size: 4rem;
+  background-clip: text;
 }
 
 .h2AboutUs2 {
@@ -78,6 +79,20 @@
 .pAboutUs2 {
   color: white;
   margin-top: 1rem;
+  background-color: white;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    #ffb6c1,
+    #ffdead,
+    #fffacd,
+    #d9ead3,
+    #add8e6,
+    #d3d3d3,
+    #e6e6fa
+  );
 }
 
 .divArrow {
@@ -126,4 +141,29 @@
 
 .divCardAboutUs2 img.logo2 {
   margin-bottom: 0rem;
+}
+
+@media (max-width: 768px) {
+  .h1TheVHDWay {
+    font-size: 24px;
+  }
+  .pTheVHDWay {
+    font-size: 16px;
+  }
+  body {
+    background-color: rgb(80, 110, 134);
+  }
+
+  #aboutPage {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #sectionTheVHDWay {
+    height: 100%;
+  }
+
+  #sectionTheVHDWay > * {
+    height: 100vh;
+  }
 }

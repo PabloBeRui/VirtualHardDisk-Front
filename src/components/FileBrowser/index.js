@@ -1,6 +1,7 @@
 import "./style.css";
 import "react-toastify/dist/ReactToastify.css";
 
+import { useEffect, useState } from "react";
 import { ChonkyActions, FullFileBrowser } from "chonky";
 import { setChonkyDefaults } from "chonky";
 import { ChonkyIconFA } from "chonky-icon-fontawesome";
@@ -8,10 +9,27 @@ import { useTokenContext } from "../../contexts/TokenContext";
 import { toast } from "react-toastify";
 
 setChonkyDefaults({ iconComponent: ChonkyIconFA });
-export const FileBrowser = ({ files }) => {
-  const { token } = useTokenContext();
-  console.log(files);
 
+export const FileBrowser = ({ files }) => {
+  const { loggedUser, token } = useTokenContext();
+  console.log("USER: ", loggedUser);
+  const { userId } = loggedUser;
+  const [folderChain, setFolderChain] = useState([
+    { id: userId, name: "root", isDir: true },
+  ]);
+  const [currentFiles, setFiles] = useState([]);
+
+  useEffect(() => {
+    if (loggedUser.userId) {
+      setFolderChain([{ id: loggedUser.userId, name: "root", isDir: true }]);
+      setFiles(files.filter((file) => file.parentId === loggedUser.userId));
+    }
+  }, [loggedUser.userId, files]);
+
+  useEffect(() => {
+    setFiles(files.filter((file) => file.parentId === userId));
+  }, [files, userId]);
+  console.log("Current antes:", currentFiles);
   setChonkyDefaults({
     disableDefaultFileActions: true,
   });
@@ -31,6 +49,10 @@ export const FileBrowser = ({ files }) => {
       const formData = new FormData();
       var file = e.target.files[0];
       formData.set("file", file);
+
+      if (folderChain.length > 1) {
+        formData.append("folder", folderChain[1].name);
+      }
       try {
         const res = await fetch("http://localhost:4000/files", {
           method: "POST",
@@ -148,12 +170,14 @@ export const FileBrowser = ({ files }) => {
       console.error(error);
       toast.error(error.message);
     } finally {
-      toast.success("Archivo descargado correctamente");
+      toast.success("Carpeta creada correctamente");
       setTimeout(() => {
         window.location.reload();
       }, 2000);
     }
   };
+
+  //FOLDERS PATH
 
   const handleFileAction = (data) => {
     console.log(data);
@@ -176,19 +200,36 @@ export const FileBrowser = ({ files }) => {
         createFolder(folderName);
         break;
 
+      case "open_files":
+        handleFolderOpen(data.payload.targetFile);
+        break;
+
       default:
         break;
     }
   };
 
-  const folderChain = [{ id: "xcv", name: "root", isDir: true }];
+  const handleFolderOpen = (folder) => {
+    // Verificar que el elemento es una carpeta
+    if (folder.isDir) {
+      const { id, name } = folder;
+      const newFolderChain = [...folderChain, { id, name, isDir: true }];
+      const newFiles = files.filter((file) => file.parentId === folder.name);
+      setFolderChain(newFolderChain);
+      setFiles(newFiles);
+    }
+    if (folder.id === userId) {
+      setFolderChain([{ id: userId, name: "root", isDir: true }]);
+      setFiles(files.filter((file) => file.parentId === userId));
+    }
+  };
 
-  // const files2 = [{ ...files[0], isDir: true }, files[1]];
-  // console.log("FILES 2:", files2);
+  console.log("CURRENT FILES AQUI:", currentFiles);
+  console.log("Chain: ", folderChain);
   return (
     <div id="chonckytextcolor" style={{ height: "100vh", color: "white" }}>
       <FullFileBrowser
-        files={files}
+        files={currentFiles}
         folderChain={folderChain}
         fileActions={fileActions}
         onFileAction={handleFileAction}

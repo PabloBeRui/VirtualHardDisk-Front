@@ -28,7 +28,7 @@ const useFiles = () => {
         if (!res.ok) {
           throw new Error(body.message);
         }
-        console.log(body);
+        console.log("BODY useFiles:", body);
         // Cargamos los datos de las entries en el estado de entries
         setFiles(body.data.items);
       } catch (error) {

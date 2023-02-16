@@ -1,12 +1,11 @@
-import "./style.css";
-
 import { Link } from "react-router-dom";
 import { useTokenContext } from "../../contexts/TokenContext";
-
 import VHD_logo from "../../assets/VHD_logo.png";
+import "./style.css";
 
 const Header = () => {
   const { token } = useTokenContext();
+
   return (
     <header className="Header">
       <Link to="/">

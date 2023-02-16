@@ -1,5 +1,3 @@
-
-
 #chonckytextcolor {
   color: white;
   background-color: #506e86;
@@ -33,7 +31,6 @@ div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
   color: #fcb040 !important;
 }
 
-
 /* CAMBIA EL COLOR DEL ROOT PERO CAMBIA TAMBEIN LOS DEMAS Y NO SE LE PUEDE AÑADIR CLASE*/
 .MuiButton-label span {
   color: white !important;
@@ -42,6 +39,21 @@ div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
 .folderBackSideTop-0-2-49::after {
   border-style: none !important;
 }
+/* COLOR SELECCION CARPETA O ARCHIVO */
+/* .selectionIndicator-0-2-120 {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  background: repeating-linear-gradient(
+      45deg,
+      rgba(255, 165, 0, 0.14),
+      rgba(255, 165, 0, 0.14) 10px,
+      rgba(255, 165, 0, 0.25) 0px,
+      rgba(255, 165, 0, 0.25) 20px
+    )
+    rgba(255, 165, 0, 0.14);
+} */
 
 /* .chonky-iconWithText svg {
   color: #fcb040 !important;
