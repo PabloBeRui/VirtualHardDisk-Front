@@ -31,7 +31,15 @@ Header ul {
   font-size: 1.8rem;
 }
 
-footer{background-color:#2F3C4F ;}
+footer {
+  background-color: #2f3c4f;
+}
+
+@media screen and (max-width: 430px) {
+  .logo {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .logo {

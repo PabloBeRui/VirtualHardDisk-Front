@@ -15,13 +15,13 @@ export const FileBrowser = ({ files }) => {
   console.log("USER: ", loggedUser);
   const { userId } = loggedUser;
   const [folderChain, setFolderChain] = useState([
-    { id: userId, name: "root", isDir: true },
+    { id: userId, name: "Home", isDir: true },
   ]);
   const [currentFiles, setFiles] = useState([]);
 
   useEffect(() => {
     if (loggedUser.userId) {
-      setFolderChain([{ id: loggedUser.userId, name: "root", isDir: true }]);
+      setFolderChain([{ id: loggedUser.userId, name: "Home", isDir: true }]);
       setFiles(files.filter((file) => file.parentId === loggedUser.userId));
     }
   }, [loggedUser.userId, files]);
@@ -85,14 +85,17 @@ export const FileBrowser = ({ files }) => {
 
   //DELETE
   const eraseFiles = async (data) => {
+    console.log("FOLDERCHAIN ERASE:", folderChain);
     try {
       const res = await fetch(
         `http://localhost:4000/files/${data.state.contextMenuTriggerFile.id}`,
         {
           method: "DELETE",
           headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
+          body: JSON.stringify({ folderName: folderChain[0].name }),
         }
       );
 
@@ -125,6 +128,41 @@ export const FileBrowser = ({ files }) => {
             Authorization: `Bearer ${token}`,
           },
           responseType: "blob",
+        }
+      );
+
+      // Verificamos si la respuesta viene correcta
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+
+      // Obtenemos el archivo a descargar
+      const file = await res.blob();
+
+      // Creamos un enlace dinámico para descargar el archivo
+      const downloadLink = document.createElement("a");
+      downloadLink.href = URL.createObjectURL(file);
+      downloadLink.download = data.state.contextMenuTriggerFile.name;
+      downloadLink.click();
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message);
+    } finally {
+      toast.success("Archivo descargado correctamente");
+    }
+  };
+
+  //Download file inside Folder
+  const downloadInsideFolder = async (data) => {
+    console.log("DOWNLOADINSIDE: ", data);
+    try {
+      const res = await fetch(
+        `http://localhost:4000/files/${data.state.contextMenuTriggerFile.parentId}/${data.state.contextMenuTriggerFile.id}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 
@@ -188,10 +226,18 @@ export const FileBrowser = ({ files }) => {
         break;
 
       case "delete_files":
+        if (data.state.contextMenuTriggerFile.isDir) {
+          deleteFolder(data);
+          break;
+        }
         eraseFiles(data);
         break;
 
       case "download_files":
+        if (data.state.contextMenuTriggerFile.parentId !== userId) {
+          downloadInsideFolder(data);
+          break;
+        }
         download(data);
         break;
 
@@ -219,8 +265,41 @@ export const FileBrowser = ({ files }) => {
       setFiles(newFiles);
     }
     if (folder.id === userId) {
-      setFolderChain([{ id: userId, name: "root", isDir: true }]);
+      setFolderChain([{ id: userId, name: "Home", isDir: true }]);
       setFiles(files.filter((file) => file.parentId === userId));
+    }
+  };
+
+  //DELETE FOLDER AND HIS CONTENT
+
+  const deleteFolder = async (folder) => {
+    console.log("FOLDERDELETENAME:", folder);
+    try {
+      const res = await fetch(
+        `http://localhost:4000/folder/${folder.state.contextMenuTriggerFile.name}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Accedemos al body de la respuesta
+      const body = await res.json();
+
+      // Si la respuesta viene mal, lanzamos un error con el mensaje que viene en el body
+      if (!res.ok) {
+        throw new Error(body.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    } finally {
+      toast.success("Folder deleted");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     }
   };
 

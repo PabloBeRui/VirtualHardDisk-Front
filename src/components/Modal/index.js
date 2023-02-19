@@ -28,19 +28,24 @@ const Modal = ({ setShowModal }) => {
       }}
     >
       <div
-        className="modalContainer"
+        id="modalContainer"
         onClick={(event) => {
           // Cuando hacemos click en el contenido del modal (lo blanco), cancelamos la propagación para que no se active el onClick del fondo del modal (lo oscuro)
           event.stopPropagation();
         }}
       >
-        <section className="userModalIcon">
+        <section
+          className="userModalIcon"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <div style={{ flexGrow: 1 }}></div>
           <UploadAvatar
             photo={photo}
             username={username}
             setShowModal={setShowModal}
           />
 
+          <div style={{ flexGrow: 1 }}></div>
           <Link
             className="link"
             to="/"

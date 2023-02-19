@@ -20,6 +20,21 @@
   cursor: pointer;
   color: #506e86;
 }
+.buttonFont {
+  font-size: 3vw;
+  padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .buttonFont {
+    font-size: 7vw;
+    padding: 0.5rem 1rem;
+  }
+}
+
+
+
+
 
 /* #button a:hover {
   cursor: pointer;

@@ -36,9 +36,48 @@ div.MuiBox-root.MuiBox-root-2.chonky-chonkyRoot {
   color: white !important;
   text-decoration: none !important;
 }
-.folderBackSideTop-0-2-49::after {
+
+/* Cambiar el fondo de color de las carpetas (Pico blanco) */
+
+[class^="folderBackSideTop-0-2-"]::after {
   border-style: none !important;
 }
+
+/* COLOR SELECCION CARPETA O ARCHIVO */
+div[class^="selectionIndicator-0-2-"] {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  background: repeating-linear-gradient(
+      45deg,
+      rgba(255, 165, 0, 0.25),
+      rgba(255, 165, 0, 0.25) 10px,
+      rgba(255, 165, 0, 0.4) 0px,
+      rgba(255, 165, 0, 0.4) 20px
+    )
+    rgba(255, 165, 0, 0.25);
+}
+
+
+/* .folderBackSideTop-0-2-49::after,
+.folderBackSideTop-0-2-18::after,
+div.folderBackSideTop-0-2-177::after,
+div.folderBackSideTop-0-2-293::after,
+div.folderBackSideTop-0-2-525::after,
+div.folderBackSideTop-0-2-641::after,
+div.folderBackSideTop-0-2-757::after,
+div.folderBackSideTop-0-2-873::after,
+div.folderBackSideTop-0-2-70::after,
+div.folderBackSideTop-0-2-264::after,
+div.folderBackSideTop-0-2-507::after,
+div.folderBackSideTop-0-2-496::after {
+  border-style: none !important;
+} */
+
+/* .folderBackSideTop-0-2-18::after {
+  border-style: none !important;
+} */
 /* COLOR SELECCION CARPETA O ARCHIVO */
 /* .selectionIndicator-0-2-120 {
   width: 100%;

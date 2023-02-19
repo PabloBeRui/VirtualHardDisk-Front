@@ -84,3 +84,13 @@ footer {
     width: 50%;
   }
 }
+
+@media only screen and (min-width: 750px) and (max-width: 950px) {
+  #MiddleLandingPage {
+    flex-direction: column;
+  }
+
+  #MiddleLandingPage div {
+    margin-bottom: 1rem;
+  }
+}

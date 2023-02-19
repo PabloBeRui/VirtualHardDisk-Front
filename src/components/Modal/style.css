@@ -1,18 +1,22 @@
 .modalBg {
+  display: flex;
   background-color: rgba(0, 0, 0, 40%);
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  display: grid;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
 }
 
-.modalContainer {
+#modalContainer {
+  display: flex;
+  flex-direction: column;
   width: 50vw;
-  height: 60vh;
+  max-width: 800px;
+  min-height: 55vh;
   background-color: white;
   border-radius: 1rem;
   padding: 1rem;
@@ -24,20 +28,23 @@
 
 .userModalIcon {
   display: flex;
-  justify-content: flex-end;
-  gap: 20rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logoutIcon {
   width: 2rem;
   height: 2rem;
   user-select: none;
+  margin-bottom: 3rem;
 }
 
 .userModalInfo {
   display: flex;
   flex-direction: column;
-  margin: auto 15rem;
+  margin: auto;
+  width: 80%;
+  max-width: 600px;
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -55,7 +62,6 @@
 
 .userModalInfo input::placeholder {
   color: #fcb040;
-
   border: none;
   background-color: #506e86;
   opacity: 1;
@@ -72,4 +78,10 @@ input:focus {
   background-color: #fcb040;
   color: #506e86;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  #modalContainer {
+    width: 80vw;
+  }
 }
