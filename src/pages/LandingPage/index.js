@@ -14,7 +14,7 @@ const LandingPage = () => {
 
       <section id="MiddleLandingPage">
         <div>
-          <img src={landingDesign} alt="Futuristic Design" />
+          <img src={landingDesign} alt="Futuristic Design" className="landingDesign" />
         </div>
         <div id="sloganAboutUs">
           <p className="slogan">For the data that never sleeps</p>

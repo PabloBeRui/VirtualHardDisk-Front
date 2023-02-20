@@ -14,6 +14,13 @@
   margin-top: 20vh;
 } */
 
+.arrowIconAboutUsBack:active,
+.arrowIconAboutUs:active {
+  opacity: 0.8;
+}
+
+
+
 .divArrow {
   display: flex;
   justify-content: center;
@@ -23,6 +30,7 @@
   height: 8rem;
   width: 8rem;
   margin-top: 10vh;
+  
 }
 .h1TheVHDWay {
   color: #fcb040;
@@ -155,6 +163,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+   
   }
 
   .arrowIconAboutUsBack {
@@ -193,7 +202,11 @@
 
   .h2AboutUs2 {
     color: orangered;
+    margin-top: 4vh;
+   
   }
+  .h2AboutUs2Center{margin-top: 2vh;}
+  
 
   .pAboutUs2 {
     color: white;
@@ -212,6 +225,7 @@
       #d3d3d3,
       #e6e6fa
     );
+   
   }
 
   .divArrow {

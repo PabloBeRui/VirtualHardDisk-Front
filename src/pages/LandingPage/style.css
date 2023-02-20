@@ -1,3 +1,23 @@
+@keyframes flip {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+.button-pressed:active {
+  transform: translateY(1px);
+}
+
+.landingDesign {
+  animation: flip 2s;
+  animation-iteration-count: 1;
+}
+
 #LandingPage {
   min-height: 100vh;
   display: flex;

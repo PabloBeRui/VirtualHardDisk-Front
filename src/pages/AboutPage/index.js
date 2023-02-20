@@ -40,7 +40,7 @@ const AboutPage = () => {
         </div>
         <section id="sectionCardsAboutUs2">
           <div class="divCardAboutUs2">
-            <img src={logo1} alt="Logo" class="logo2"/>
+            <img src={logo1} alt="Logo" class="logo2" />
             <h2 class="h2AboutUs2">Wide Network</h2>
             <p class="pAboutUs2">
               No matter where you are, we've got you covered.
@@ -48,11 +48,11 @@ const AboutPage = () => {
           </div>
           <div class="divCardAboutUs2">
             <img src={logo2} class="logo2" alt="Logo" />
-            <h2 class="h2AboutUs2">Unmatched Support</h2>
+            <h2 class="h2AboutUs2 h2AboutUs2Center ">Unmatched Support</h2>
             <p class="pAboutUs2">Virtual assistance. Talk to us about any</p>
           </div>
           <div class="divCardAboutUs2B">
-            <img src={logo3} alt="Logo" class="logo2"/>
+            <img src={logo3} alt="Logo" class="logo2" />
             <h2 class="h2AboutUs2">Beginner-Friendly</h2>
             <p class="pAboutUs2">
               Easy peasy UI. Our interface is simple and easy to use.
@@ -66,7 +66,7 @@ const AboutPage = () => {
 
   return (
     <section id="aboutPage">
-      <AboutUsHeader style={{maxWidth: '60%'}} />
+      <AboutUsHeader style={{ maxWidth: "60%" }} />
 
       <section id="sectionTheVHDWay">
         {sectionContent}
@@ -88,4 +88,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-

@@ -16,11 +16,7 @@ const Header = () => {
         <ul>
           {!token && (
             <>
-              <li>
-                <Link className="linkHeader" to="/about">
-                  About Us
-                </Link>
-              </li>
+              
               <li>
                 <Link className="linkHeader" to="/register">
                   Register
@@ -36,11 +32,7 @@ const Header = () => {
 
           {token && (
             <>
-              <li>
-                <Link className="linkHeader" to="/about">
-                  About Us
-                </Link>
-              </li>
+              
               <li>
                 <Link className="linkHeader" to="/profile">
                   UserPage

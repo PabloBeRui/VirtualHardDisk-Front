@@ -20,7 +20,7 @@ const UserHeader = () => {
         <img className="logoUserHeader" src={VHD_logo} alt="logo" />
       </Link>
       <Avatar photo={photo} username={username} setShowModal={setShowModal} />
-      {showModal && <Modal setShowModal={setShowModal}></Modal>}{" "}
+      {showModal && <Modal setShowModal={setShowModal}></Modal>}
     </header>
   );
 };

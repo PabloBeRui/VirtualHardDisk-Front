@@ -18,3 +18,8 @@
   cursor: pointer;
 
 }
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0px 0px 0px;
+}
