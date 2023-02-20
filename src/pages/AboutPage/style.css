@@ -1,3 +1,7 @@
+*{
+  user-select: none;
+}
+
 #aboutPage {
   background-color: #506e86;
   height: 100vh;
@@ -18,12 +22,14 @@
 .arrowIconAboutUs {
   height: 8rem;
   width: 8rem;
+  margin-top: 10vh;
 }
 .h1TheVHDWay {
   color: #fcb040;
   font-size: 10vw;
   text-align: center;
   margin-bottom: 2vh;
+  margin-top: 4vh;
 }
 
 .pTheVHDWay {
