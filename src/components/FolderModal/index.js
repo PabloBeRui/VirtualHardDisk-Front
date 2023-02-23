@@ -1,20 +1,13 @@
 import "./style.css";
 import { useTokenContext } from "../../contexts/TokenContext";
-import logoutIcon from "../../assets/logoutIcon.png";
-import UploadAvatar from "../UploadAvatar";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useState } from "react";
 import ButtonModal from "../ButtonModal";
+import { useState } from "react";
 
 // Pinta un modal blanco con un fondo oscuro. El contenido del modal es lo recibido en la prop children. También recibe setShowModal para poder cerrar el modal cuando hagamos click en el fondo oscuro
-const Modal = ({ setShowModal }) => {
-  const { token, setToken, loggedUser } = useTokenContext();
-  const { username, photo, bio } = loggedUser;
-  const [newUserName, setNewUserName] = useState("");
-  const [newBio, setNewBio] = useState("");
-  const navigate = useNavigate();
+const FolderModal = ({ setShowModal }) => {
+  const { token } = useTokenContext();
+  const [folderName, setFolderName] = useState("");
 
   return (
     <div
@@ -28,50 +21,30 @@ const Modal = ({ setShowModal }) => {
       }}
     >
       <div
-        id="modalContainer"
+        id="modalFolderContainer"
         onClick={(event) => {
           // Cuando hacemos click en el contenido del modal (lo blanco), cancelamos la propagación para que no se active el onClick del fondo del modal (lo oscuro)
           event.stopPropagation();
         }}
       >
-        <section
-          className="userModalIcon"
-          style={{ display: "flex", alignItems: "center" }}
-        >
-          <div style={{ flexGrow: 1 }}></div>
-          <UploadAvatar
-            photo={photo}
-            username={username}
-            setShowModal={setShowModal}
-          />
-
-          <div style={{ flexGrow: 1 }}></div>
-          <Link
-            className="link"
-            to="/"
-            onClick={() => {
-              setToken("");
-            }}
-          >
-            <img className="logoutIcon" src={logoutIcon} alt="logoutIcon" />
-          </Link>
-        </section>
+        <h1 className="h1FolderName">New Folder</h1>
 
         <form
-          className="userModalInfo"
+          className="formNewFolder"
           onSubmit={async (event) => {
             try {
+              let newFolderName = folderName;
               // Cancelamos la acción por defecto del formulario
               event.preventDefault();
-
+              console.log(folderName);
               // Hacemos una petición POST a la API y enviamos en el body un JSON con los datos que ha introducido el usuario en el formulario. IMPORTANTE mandar el header Content-Type indicando que el body es un JSON
-              const res = await fetch("http://localhost:4000/users/edit", {
-                method: "PATCH",
+              const res = await fetch("http://localhost:4000/folder", {
+                method: "POST",
                 headers: {
-                  Authorization: `Bearer ${token}`,
                   "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
                 },
-                body: JSON.stringify({ newUserName, newBio }),
+                body: JSON.stringify({ newFolderName }),
               });
 
               // Accedemos al body de la respuesta
@@ -81,13 +54,10 @@ const Modal = ({ setShowModal }) => {
               if (!res.ok) {
                 throw new Error(body.message);
               }
-              navigate("/profile");
-              toast.success(
-                "User information has been successfully modified"
-              );
+              toast.success("Folder Created");
               setTimeout(() => {
                 window.location.reload();
-              }, 1000);
+              }, 2000);
             } catch (error) {
               // Si salta algún error lo sacamos por consola y se lo mostramos al usuario en una alerta
               console.error(error);
@@ -96,31 +66,20 @@ const Modal = ({ setShowModal }) => {
           }}
         >
           <input
+            className="folderModalInput"
             type="text"
-            placeholder={username}
-            value={newUserName}
+            placeholder="Write folder name"
+            value={folderName}
             onChange={(event) => {
-              setNewUserName(event.target.value);
+              setFolderName(event.target.value);
             }}
           />
-          <input
-            type="text"
-            placeholder={bio}
-            value={newBio}
-            onChange={(event) => {
-              setNewBio(event.target.value);
-            }}
-          />
-          <p>
-            Change your information by entering it in the fields above and
-            clicking the button below.
-          </p>
 
-          <ButtonModal text="Change Info" />
+          <ButtonModal text="Submit" buttonClass="folderModalButton" />
         </form>
       </div>
     </div>
   );
 };
 
-export default Modal;
+export default FolderModal;

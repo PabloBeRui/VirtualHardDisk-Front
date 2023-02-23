@@ -1,9 +1,11 @@
 import "./style.css";
 
-const ButtonModal = ({ text, destination }) => {
+const ButtonModal = ({ text, destination, buttonClass }) => {
   return (
-    <button id="button">
-      <a href={destination} className="buttonFont">{text}</a>
+    <button id="button" className={buttonClass}>
+      <a href={destination} className="buttonFont">
+        {text}
+      </a>
     </button>
   );
 };

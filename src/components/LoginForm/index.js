@@ -48,7 +48,7 @@ const LoginForm = () => {
             // Redireccionamos al usuario a inicio
             navigate(`/profile`);
             // Mandamos una alerta indicando que el usuario se ha logueado
-            toast.success("¡Te has logueado correctamente!");
+            toast.success("You have successfully logged in!");
           } catch (error) {
             // Si salta algún error lo sacamos por consola y se lo mostramos al usuario en una alerta
             console.error(error);

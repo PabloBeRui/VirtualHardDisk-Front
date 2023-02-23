@@ -40,7 +40,7 @@ const RegisterForm = () => {
             }
             navigate("/");
             toast.success(
-              "¡Te has registrado correctamente! Ya pueder logearte!"
+              "¡You have registered successfully! Now you can log in"
             );
           } catch (error) {
             // Si salta algún error lo sacamos por consola y se lo mostramos al usuario en una alerta

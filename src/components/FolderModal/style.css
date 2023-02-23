@@ -1,0 +1,85 @@
+#modalFolderContainer {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+
+  min-height: 5vh;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.h1FolderName {
+  color: #333;
+  font-size: 3.5vw;
+  margin: 0;
+  padding: 1.5vh 0;
+  text-align: center;
+}
+
+#chonckytextcolor {
+  color: black !important;
+}
+.folderModalInput {
+  display: flex;
+  background-color: #506e86;
+  height: 5vh;
+  width: 35vw;
+  margin: auto;
+  font-size: 2vw;
+   border-radius:5px;
+}
+
+.folderModalInput::placeholder {
+  color: #fcb040;
+}
+
+.folderModalButton {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  width: 20vw;
+  height: 10vh;
+  margin: auto;
+}
+
+.formNewFolder {
+  display: flex;
+  flex-direction: column;
+  min-height: 25vh;
+}
+
+.folderModalButton > a {
+  font-size: 4vw;
+}
+
+@media screen and (max-width: 768px) {
+  #modalFolderContainer {
+    width: 70vw;
+  }
+  .h1FolderName {
+    font-size: 7vw;
+  }
+
+  .folderModalInput {
+    font-size: 3.5vw;
+    height: 5vh;
+    width: 40vw;
+   
+  }
+  .folderModalButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 6vh;
+    margin: auto;
+
+  }
+  .folderModalButton > a {
+    font-size: 8vw;
+    padding: 0;
+  
+    
+  }
+}

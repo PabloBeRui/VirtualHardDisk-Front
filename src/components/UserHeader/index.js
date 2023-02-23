@@ -2,10 +2,10 @@ import "./style.css";
 
 import { Link } from "react-router-dom";
 import { useTokenContext } from "../../contexts/TokenContext";
+import Avatar from "../Avatar";
 
 import VHD_logo from "../../assets/VHD_logo.png";
 import Modal from "../Modal";
-import Avatar from "../Avatar";
 import { useState } from "react";
 
 const UserHeader = () => {

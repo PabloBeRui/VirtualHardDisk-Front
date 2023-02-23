@@ -52,7 +52,7 @@ const upload = (token) => {
       console.log(error);
       toast.error(error.message);
     } finally {
-      toast.success("¡Subida completada!");
+      toast.success("¡New avatar applied!");
       setTimeout(() => {
         window.location.reload();
       }, 2000);
