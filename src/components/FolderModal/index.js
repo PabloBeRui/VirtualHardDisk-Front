@@ -36,7 +36,7 @@ const FolderModal = ({ setShowModal }) => {
               let newFolderName = folderName;
               // Cancelamos la acción por defecto del formulario
               event.preventDefault();
-              console.log(folderName);
+
               // Hacemos una petición POST a la API y enviamos en el body un JSON con los datos que ha introducido el usuario en el formulario. IMPORTANTE mandar el header Content-Type indicando que el body es un JSON
               const res = await fetch("http://localhost:4000/folder", {
                 method: "POST",

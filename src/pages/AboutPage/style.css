@@ -9,10 +9,6 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-/* #sectionTheVHDWay{
-
-  margin-top: 20vh;
-} */
 
 .arrowIconAboutUsBack:active,
 .arrowIconAboutUs:active {
@@ -45,8 +41,6 @@
   margin-left: 5vw;
   margin-right: 5vw;
 }
-
-/* HASTA AQUÍ FUNCIONA CORRECTAMENTE ABOUTUS1 */
 
 .arrowIconAboutUsBack {
   height: 40vw;

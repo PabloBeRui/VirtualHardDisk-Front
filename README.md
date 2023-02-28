@@ -1,5 +1,4 @@
 
-
 ![Logo](https://i.imgur.com/Pr6SDhY.png)
 
 
@@ -22,9 +21,46 @@ Created as a HACK A BOSS web bootcamp project, Virtual hard disk is a complete c
 - Error Management
 - UI/UX Desing
 
-## Screenshots
+## Deployment
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+To deploy this project you need to use our [Virtual Hard Disk API](https://github.com/TheBraisgf/VirtualHardDisk-Back).
+
+First, you must execute the follow command to install all the needed dependencies.
+```bash
+  npm install 
+```
+
+Next, you can use the develop react instance with this command:
+
+```bash
+  npm start 
+```
+ 
+ Or you can build this project to deploy in a server with:
+
+ ```bash
+  npm build 
+```
+
+## Screenshots
+#### Landing Page:
+![Landing](https://i.imgur.com/PcXxbaa.png)
+
+#### About Us:
+![About Us](https://i.imgur.com/8sXPqIA.png)
+
+#### Register / Login Page:
+![Register / Login Page](https://i.imgur.com/XbKUzof.png)
+
+#### User Page:
+![User Page](https://i.imgur.com/BsHr6a1.png)
+
+#### Folder Chain Function:
+![Folder Chain](https://i.imgur.com/eOs0rHT.png)
+
+#### User Info:
+![User Info](https://i.imgur.com/3si84So.png)
+
 
 
 ## FAQ
@@ -52,5 +88,4 @@ If you have any feedback, please reach out to us at braisgf@gmail.com
 [![instabio](https://img.shields.io/badge/SOCIAL_MEDIA-FFA500?style=for-the-badge&logo=rss&logoColor=white)](https://instabio.cc/3030409IOuIr3)
 
 ## [![linkedin](https://img.shields.io/badge/pabloberu-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PabloBeRui)
-
 

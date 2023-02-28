@@ -1,19 +1,33 @@
+//Styles
 import "./style.css";
+
+//React Components
+import { useEffect, useState } from "react";
+
+//Function Import
+import upload from "../../functions/upload";
+import eraseFiles from "../../functions/eraseFiles";
+import deleteFolder from "../../functions/deleteFolder";
+import download from "../../functions/download";
+import downloadInsideFolder from "../../functions/downloadInsideFolder";
+
+//Toastify Alerts
 import "react-toastify/dist/ReactToastify.css";
 
-import { useEffect, useState } from "react";
-import { ChonkyActions, FullFileBrowser } from "chonky";
-import { setChonkyDefaults } from "chonky";
+//Chonky Library
+import { ChonkyActions, FullFileBrowser, setChonkyDefaults } from "chonky";
 import { ChonkyIconFA } from "chonky-icon-fontawesome";
-import { useTokenContext } from "../../contexts/TokenContext";
-import { toast } from "react-toastify";
+
+//Our Components
 import FolderModal from "../FolderModal";
+
+//Contexts
+import { useTokenContext } from "../../contexts/TokenContext";
 
 setChonkyDefaults({ iconComponent: ChonkyIconFA });
 
 export const FileBrowser = ({ files }) => {
   const { loggedUser, token } = useTokenContext();
-  console.log("USER: ", loggedUser);
   const { userId } = loggedUser;
   const [folderChain, setFolderChain] = useState([
     { id: userId, name: "Home", isDir: true },
@@ -31,7 +45,7 @@ export const FileBrowser = ({ files }) => {
   useEffect(() => {
     setFiles(files.filter((file) => file.parentId === userId));
   }, [files, userId]);
-  console.log("Current antes:", currentFiles);
+
   setChonkyDefaults({
     disableDefaultFileActions: true,
   });
@@ -43,180 +57,28 @@ export const FileBrowser = ({ files }) => {
     ChonkyActions.CreateFolder,
   ];
 
-  //UPLOAD
-  const upload = () => {
-    var input = document.createElement("input");
-    input.type = "file";
-    input.onchange = async (e) => {
-      const formData = new FormData();
-      var file = e.target.files[0];
-      formData.set("file", file);
-
-      if (folderChain.length > 1) {
-        formData.append("folder", folderChain[1].name);
-      }
-      try {
-        const res = await fetch("http://localhost:4000/files", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body: formData,
-        });
-
-        // Accedemos al body de la respuesta
-        const body = await res.json();
-
-        // Si la respuesta viene mal, lanzamos un error con el mensaje que viene en el body
-        if (!res.ok) {
-          throw new Error(body.message);
-        }
-      } catch (error) {
-        console.log(error);
-        toast.error(error.message);
-      } finally {
-        toast.success("Upload completed!");
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
-      }
-    };
-
-    input.click();
-  };
-
-  //DELETE
-  const eraseFiles = async (data) => {
-    console.log("FOLDERCHAIN ERASE:", folderChain[1]);
-    let folderName = "";
-    if (folderChain.length > 1) {
-      folderName = folderChain[1].name;
-    }
-    try {
-      const res = await fetch(
-        `http://localhost:4000/files/${data.state.contextMenuTriggerFile.id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ folderName: folderName }),
-        }
-      );
-
-      // Accedemos al body de la respuesta
-      const body = await res.json();
-
-      // Si la respuesta viene mal, lanzamos un error con el mensaje que viene en el body
-      if (!res.ok) {
-        throw new Error(body.message);
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error(error.message);
-    } finally {
-      toast.success("File deleted successfully");
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-    }
-  };
-
-  //DOWNLOAD
-  const download = async (data) => {
-    try {
-      const res = await fetch(
-        `http://localhost:4000/files/${data.state.contextMenuTriggerFile.id}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          responseType: "blob",
-        }
-      );
-
-      // Verificamos si la respuesta viene correcta
-      if (!res.ok) {
-        throw new Error(res.statusText);
-      }
-
-      // Obtenemos el archivo a descargar
-      const file = await res.blob();
-
-      // Creamos un enlace dinámico para descargar el archivo
-      const downloadLink = document.createElement("a");
-      downloadLink.href = URL.createObjectURL(file);
-      downloadLink.download = data.state.contextMenuTriggerFile.name;
-      downloadLink.click();
-    } catch (error) {
-      console.error(error);
-      toast.error(error.message);
-    } finally {
-      toast.success("File downloaded successfully");
-    }
-  };
-
-  //Download file inside Folder
-  const downloadInsideFolder = async (data) => {
-    console.log("DOWNLOADINSIDE: ", data);
-    try {
-      const res = await fetch(
-        `http://localhost:4000/files/${data.state.contextMenuTriggerFile.parentId}/${data.state.contextMenuTriggerFile.id}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      // Verificamos si la respuesta viene correcta
-      if (!res.ok) {
-        throw new Error(res.statusText);
-      }
-
-      // Obtenemos el archivo a descargar
-      const file = await res.blob();
-
-      // Creamos un enlace dinámico para descargar el archivo
-      const downloadLink = document.createElement("a");
-      downloadLink.href = URL.createObjectURL(file);
-      downloadLink.download = data.state.contextMenuTriggerFile.name;
-      downloadLink.click();
-    } catch (error) {
-      console.error(error);
-      toast.error(error.message);
-    } finally {
-      toast.success("File downloaded successfully");
-    }
-  };
-
   //FOLDERS PATH
 
   const handleFileAction = (data) => {
-    console.log("MODAL:", setShowModal);
-
     switch (data.id) {
       case "upload_files":
-        upload();
+        upload(folderChain, token);
         break;
 
       case "delete_files":
         if (data.state.contextMenuTriggerFile.isDir) {
-          deleteFolder(data);
+          deleteFolder(data, token);
           break;
         }
-        eraseFiles(data);
+        eraseFiles(data, token, folderChain);
         break;
 
       case "download_files":
         if (data.state.contextMenuTriggerFile.parentId !== userId) {
-          downloadInsideFolder(data);
+          downloadInsideFolder(data, token);
           break;
         }
-        download(data);
+        download(data, token);
         break;
 
       case "create_folder":
@@ -246,42 +108,6 @@ export const FileBrowser = ({ files }) => {
       setFiles(files.filter((file) => file.parentId === userId));
     }
   };
-
-  //DELETE FOLDER AND HIS CONTENT
-
-  const deleteFolder = async (folder) => {
-    console.log("FOLDERDELETENAME:", folder);
-    try {
-      const res = await fetch(
-        `http://localhost:4000/folder/${folder.state.contextMenuTriggerFile.name}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      // Accedemos al body de la respuesta
-      const body = await res.json();
-
-      // Si la respuesta viene mal, lanzamos un error con el mensaje que viene en el body
-      if (!res.ok) {
-        throw new Error(body.message);
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error(error.message);
-    } finally {
-      toast.success("Folder deleted");
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-    }
-  };
-
-  console.log("CURRENT FILES AQUI:", currentFiles);
-  console.log("Chain: ", folderChain);
   return (
     <div id="chonckytextcolor" style={{ height: "100vh", color: "white" }}>
       <FullFileBrowser

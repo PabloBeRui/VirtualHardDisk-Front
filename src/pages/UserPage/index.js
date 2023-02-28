@@ -13,10 +13,10 @@ const UserPage = () => {
   const { files } = useFiles();
   const { userId } = loggedUser;
   const uniqueFolders = useRef([]);
-  console.log("FILES PRE:", files);
 
   useEffect(() => {
     uniqueFolders.current = findFolders(files);
+    // eslint-disable-next-line
   }, [files]);
 
   const findFolders = (files) => {
@@ -32,13 +32,6 @@ const UserPage = () => {
     return uniqueFolders;
   };
 
-  // const folderObjects = uniqueFolders.current.map((folder) => ({
-  //   id: uuid(),
-  //   name: folder,
-  //   isDir: false,
-  //   parentId: id,
-  // }));
-
   const updatedFiles = files.map((file) => {
     if (file.isDir) {
       return {
@@ -50,7 +43,6 @@ const UserPage = () => {
     }
   });
 
-  console.log("Updated files:", updatedFiles);
   return (
     <section id="userpage">
       <UserHeader />

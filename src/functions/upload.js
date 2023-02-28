@@ -1,38 +1,19 @@
-import defaultAvatar from "../../assets/userIcon.png";
-import "./style.css";
 import { toast } from "react-toastify";
-import { useTokenContext } from "../../contexts/TokenContext";
 
-// Pinta el avatar del usuario o, si no tiene, el avatar por defecto
-const UploadAvatar = ({ photo, username, setShowModal }) => {
-  const { token } = useTokenContext();
-
-  return (
-    <img
-      className="avatarImg"
-      onClick={() => {
-        upload(token);
-      }}
-      src={photo ? `http://localhost:4000/${photo}` : defaultAvatar}
-      alt={`${username} avatar`}
-    />
-  );
-};
-
-export default UploadAvatar;
-
-//UPLOAD
-const upload = (token) => {
+const upload = (folderChain, token) => {
   var input = document.createElement("input");
   input.type = "file";
-  input.click();
   input.onchange = async (e) => {
     const formData = new FormData();
     var file = e.target.files[0];
     formData.set("file", file);
+
+    if (folderChain.length > 1) {
+      formData.append("folder", folderChain[1].name);
+    }
     try {
-      const res = await fetch("http://localhost:4000/users/edit", {
-        method: "PATCH",
+      const res = await fetch("http://localhost:4000/files", {
+        method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -46,14 +27,18 @@ const upload = (token) => {
       if (!res.ok) {
         throw new Error(body.message);
       }
+      toast.success("Upload completed!");
     } catch (error) {
       console.error(error);
       toast.error(error.message);
     } finally {
-      toast.success("¡New avatar applied!");
       setTimeout(() => {
         window.location.reload();
       }, 2000);
     }
   };
+
+  input.click();
 };
+
+export default upload;

@@ -3,7 +3,6 @@ import "./style.css";
 
 // Pinta el avatar del usuario o, si no tiene, el avatar por defecto
 const Avatar = ({ photo, username, setShowModal }) => {
-  console.log("FOTO:", photo);
   return (
     <img
       className="avatarImg"
