@@ -23,7 +23,7 @@ Created as a HACK A BOSS web bootcamp project, Virtual hard disk is a complete c
 
 ## Deployment
 
-To deploy this project you need to use our [Virtual Hard Disk API](https://github.com/TheBraisgf/VirtualHardDisk-Back).
+To deploy this project you need to use our [Virtual Hard Disk API](https://github.com/PabloBeRui/VirtualHardDiskBack).
 
 First, you must execute the follow command to install all the needed dependencies.
 ```bash
@@ -75,7 +75,7 @@ Of course but down your own risk.
 
 ## Feedback
 
-If you have any feedback, please reach out to us at braisgf@gmail.com
+If you have any feedback, please reach out to us at pablo.bellon.ruibal@gmail.com
 
 # 💡Authors
 
@@ -87,5 +87,5 @@ If you have any feedback, please reach out to us at braisgf@gmail.com
 
 [![instabio](https://img.shields.io/badge/SOCIAL_MEDIA-FFA500?style=for-the-badge&logo=rss&logoColor=white)](https://instabio.cc/3030409IOuIr3)
 
-## [![linkedin](https://img.shields.io/badge/pabloberu-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PabloBeRui)
+## [![linkedin](https://img.shields.io/badge/PabloBeRui-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PabloBeRui)
 
